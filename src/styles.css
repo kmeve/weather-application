@@ -1,0 +1,49 @@
+h1,
+.days {
+  text-align: center;
+}
+
+.container {
+  font-family: "Poppins", sans-serif;
+}
+
+.fa-solid fa-sun {
+  font-weight: bolder;
+  font-size: 30px;
+}
+li {
+  list-style: none;
+}
+.content {
+  background-origin: border-box;
+  box-shadow: rgba(37, 39, 89, 0.2) 0px 8px 8px 0;
+  padding: 40px;
+  border-radius: 10px;
+  border: 1px solid #0dcaf0;
+  margin: 50px auto;
+  max-width: 800px;
+}
+
+.choose-system-E:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.choose-system-Am:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#basic-addon2:hover {
+  cursor: pointer;
+}
+
+.card:hover {
+  cursor: pointer;
+  background: rgb(178, 235, 247);
+  transition: 200ms;
+}
+
+footer {
+  text-align: center;
+  font-size: 12px;
+}

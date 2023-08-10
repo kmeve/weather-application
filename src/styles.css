@@ -1,3 +1,20 @@
+body {
+  background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/092/242/original/calm-water-surface-backgriund.jpg?1691241880");
+}
+#location {
+  border-radius: 10px;
+  border: 1px solid #0dcaf0;
+  margin: 10px auto;
+  background-color: #ffffff;
+  display: block;
+  padding: 7px 15px;
+}
+#location:hover {
+  cursor: pointer;
+  background: rgb(178, 235, 247);
+  transition: 200ms;
+}
+
 h1,
 .days {
   text-align: center;
@@ -22,6 +39,8 @@ li {
   border: 1px solid #0dcaf0;
   margin: 50px auto;
   max-width: 800px;
+  background-color: #ffffff;
+  opacity: 0.8;
 }
 
 .choose-system-E:hover {

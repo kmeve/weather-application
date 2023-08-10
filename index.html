@@ -13,11 +13,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
     <link href="src/styles.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+
 </head>
 
 <body>
     <div class="container">
         <div class="content">
+            <button id="location">My currrent location</button>
             <div class="input-group mb-3">
                 <input type="text" class="form-control" placeholder="Enter the city" aria-label="Enter the city"
                     id="search-input" aria-describedby="basic-addon2">
@@ -45,13 +48,14 @@
                 <div class="col-6">
                     <ul>
                         <li>
-                            Precipitation: 0%
+                            Wind: <span id="wind-speed">6</span> km\h
                         </li>
                         <li>
-                            Humidity: 46%
+                            Humidity: <span id="humidity">46%</span>
                         </li>
                         <li>
-                            Wind: 6km\h
+
+                            Description: <span id="describe">Cloudy</span>
                         </li>
                     </ul>
                 </div>

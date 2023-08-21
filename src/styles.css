@@ -66,3 +66,12 @@ footer {
   text-align: center;
   font-size: 12px;
 }
+
+.choose-system-E .active {
+  color: black;
+  cursor: default;
+  text-decoration: none;
+}
+.choose-system-E:hover {
+  text-decoration: none;
+}

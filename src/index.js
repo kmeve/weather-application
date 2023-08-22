@@ -56,10 +56,10 @@ function displayFahrenheitTemperature(event) {
 }
 
 function displayCelsiusTemperature(event) {
-  preventDefault();
+  event.preventDefault();
   let temperatureElement = document.querySelector("#change-system");
   temperatureElement.innerHTML = Math.round(celTemperature);
-  celsuisLink.classList.add("active");
+  celsiusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
 }
 

@@ -4,6 +4,10 @@ function newCityName(event) {
   let h1 = document.querySelector("h1");
   h1.innerHTML = cityName.value;
   let city = cityName.value;
+  handleSearch(city);
+}
+
+function handleSearch(city) {
   let apiKey = "bd5b4461863eddaa6ced0a0a67989e0a";
   let units = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
@@ -92,3 +96,5 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
 let celsiusLink = document.querySelector("#celsius");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
+
+handleSearch("Chernihiv");

@@ -56,24 +56,6 @@ function getCurrentLocation(location) {
   navigator.geolocation.getCurrentPosition(showPosition);
 }
 
-function displayFahrenheitTemperature(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#change-system");
-
-  let fahrenheitTemperature = (celTemperature * 9) / 5 + 32;
-  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-}
-
-function displayCelsiusTemperature(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#change-system");
-  temperatureElement.innerHTML = Math.round(celTemperature);
-  celsiusLink.classList.add("active");
-  fahrenheitLink.classList.remove("active");
-}
-
 let currentData = new Date();
 let days = [
   "Sunday",
@@ -87,7 +69,15 @@ let days = [
 ];
 let day = days[currentData.getDay()];
 let hours = currentData.getHours();
+if (hours < 10) {
+  hours = `0${hours}`;
+}
+
 let minutes = currentData.getMinutes();
+if (minutes < 10) {
+  minutes = `0${minutes}`;
+}
+
 let h3 = document.querySelector("h3");
 h3.innerHTML = `${day} ${hours}:${minutes}`;
 
@@ -151,13 +141,5 @@ submitCity.addEventListener("click", newCityName);
 
 let button = document.querySelector("#location");
 button.addEventListener("click", getCurrentLocation);
-
-let celTemperature = null;
-
-let fahrenheitLink = document.querySelector("#fahrenheit");
-fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
-
-let celsiusLink = document.querySelector("#celsius");
-celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 handleSearch("Chernihiv");

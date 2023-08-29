@@ -43,23 +43,7 @@ li {
   max-height: 200px;
 }
 
-.choose-system-E .active {
-  color: black;
-  cursor: default;
-  text-decoration: none;
-}
-.choose-system-E:hover {
-  text-decoration: none;
-}
 
-.choose-system-Am .active {
-  color: black;
-  cursor: default;
-  text-decoration: none;
-}
-.choose-system-Am:hover {
-  text-decoration: none;
-}
 
 #basic-addon2:hover {
   cursor: pointer;

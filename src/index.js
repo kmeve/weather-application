@@ -79,6 +79,7 @@ let days = [
   "Sunday",
   "Monday",
   "Tuesday",
+  "Wednesday",
   "Thursday",
   "Friday",
   "Saturday",
@@ -91,29 +92,58 @@ let h3 = document.querySelector("h3");
 h3.innerHTML = `${day} ${hours}:${minutes}`;
 
 function temperatureOfTheDays(response) {
-  console.log(response.data);
+  let daysResponse = response.data.daily;
+
   let forecast = document.querySelector("#days-temperature");
   let forecastHTML = `<div class="row">`;
-  let days = ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col">
-                        <div class="card border-info mb-3" style="max-width: 15rem;">
-                            <div class="card-header">${day}</div>
+
+  daysResponse.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col">
+                        <div class="card border-info mb-3" style="max-width: 150px">
+                            <div class="card-header">${dayName(
+                              forecastDay.dt
+                            )}</div>
                             <div class="card-body">
-                                <h5 class="card-title"><i class="fa-solid fa-cloud-sun"></i></h5>
+                                <h5 class="card-title">
+                                <img src="https://openweathermap.org/img/wn/${
+                                  forecastDay.weather[0].icon
+                                }@2x.png"> </img>
+                                </h5>
                                 <p class="card-text">
-                                    <span class="temperature-max">24°</span>
-                                    <span class="temperature-min">12°</span>
+                                    <span class="temperature-max">${Math.round(
+                                      forecastDay.temp.max
+                                    )}° /</span>
+                                    <span class="temperature-min">${Math.round(
+                                      forecastDay.temp.min
+                                    )}</span>
                                 </p>
                             </div>
                         </div>
                     </div>
 `;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
   forecast.innerHTML = forecastHTML;
+}
+
+function dayName(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+  ];
+  return days[day];
 }
 
 let submitCity = document.querySelector("#basic-addon2");

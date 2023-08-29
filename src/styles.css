@@ -24,10 +24,6 @@ h1,
   font-family: "Poppins", sans-serif;
 }
 
-.fa-solid fa-sun {
-  font-weight: bolder;
-  font-size: 30px;
-}
 li {
   list-style: none;
 }
@@ -38,18 +34,31 @@ li {
   border-radius: 10px;
   border: 1px solid #0dcaf0;
   margin: 50px auto;
-  max-width: 800px;
+  max-width: 950px;
   background-color: #ffffff;
   opacity: 0.8;
 }
 
+.card {
+  max-height: 200px;
+}
+
+.choose-system-E .active {
+  color: black;
+  cursor: default;
+  text-decoration: none;
+}
 .choose-system-E:hover {
-  text-decoration: underline;
-  cursor: pointer;
+  text-decoration: none;
+}
+
+.choose-system-Am .active {
+  color: black;
+  cursor: default;
+  text-decoration: none;
 }
 .choose-system-Am:hover {
-  text-decoration: underline;
-  cursor: pointer;
+  text-decoration: none;
 }
 
 #basic-addon2:hover {
@@ -65,15 +74,6 @@ li {
 footer {
   text-align: center;
   font-size: 12px;
-}
-
-.choose-system-E .active {
-  color: black;
-  cursor: default;
-  text-decoration: none;
-}
-.choose-system-E:hover {
-  text-decoration: none;
 }
 
 .temperature-min {

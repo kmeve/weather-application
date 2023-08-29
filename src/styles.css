@@ -75,3 +75,7 @@ footer {
 .choose-system-E:hover {
   text-decoration: none;
 }
+
+.temperature-min {
+  opacity: 0.6;
+}

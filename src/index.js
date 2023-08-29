@@ -34,8 +34,15 @@ function showCity(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+
+  temperatureForecast(response.data.coord);
 }
 
+function temperatureForecast(coordinates) {
+  let apiKey = "bd5b4461863eddaa6ced0a0a67989e0a";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios(apiUrl).then(temperatureOfTheDays);
+}
 function showPosition(position) {
   let latInfo = position.coords.latitude;
   let longInfo = position.coords.longitude;
@@ -82,6 +89,32 @@ let hours = currentData.getHours();
 let minutes = currentData.getMinutes();
 let h3 = document.querySelector("h3");
 h3.innerHTML = `${day} ${hours}:${minutes}`;
+
+function temperatureOfTheDays(response) {
+  console.log(response.data);
+  let forecast = document.querySelector("#days-temperature");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col">
+                        <div class="card border-info mb-3" style="max-width: 15rem;">
+                            <div class="card-header">${day}</div>
+                            <div class="card-body">
+                                <h5 class="card-title"><i class="fa-solid fa-cloud-sun"></i></h5>
+                                <p class="card-text">
+                                    <span class="temperature-max">24°</span>
+                                    <span class="temperature-min">12°</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecast.innerHTML = forecastHTML;
+}
 
 let submitCity = document.querySelector("#basic-addon2");
 submitCity.addEventListener("click", newCityName);
